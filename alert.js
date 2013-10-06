@@ -1,1 +1,2 @@
-console.log(impliedglobal);
+document.body.style.backgroundColor = myColor;
+console.log(mySource);
