@@ -3,7 +3,11 @@
     "name": "ASCII-fy",
     "description": "Turn any old picture into an awesome ASCII picture",
     "version": "0.1",
-    "icon": "icon.png",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
     "permissions":[
        "activeTab",
        "tabs",
