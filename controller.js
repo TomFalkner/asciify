@@ -1,15 +1,11 @@
-function sayHi(info, tab){
-    console.log('click url = ' + info.srcUrl);
-}
-
-//chrome.contextMenus.onClicked.addListener(sayHi);
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
     var imgsrc = info.srcUrl;
+    console.log(imgsrc);
     chrome.tabs.executeScript({
-        code:'var myColor = "yellow"; var mySource = "' + imgsrc + '";' 
+        code:'var target = "' + imgsrc + '";' 
     }, function(){
         chrome.tabs.executeScript({
-            file:'alert.js'
+            file:'ascii-apocalypse.js'
         });
     });
 });

@@ -14,17 +14,17 @@ var ascii_apocalypse = (function(){
         theCharacters,
         placeImage;
 
-    theCharacters = ['a', 'b', 'c', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '@', '#', '$', '%', '&', '*', '-', '+', '=', '|', '<', '>', '?', '.', '_', ' '];
+    theCharacters = ['A', 'B', 'D', 'F', 'G', 'H', 'I', 'J', 'K', 'O', 'P', 'Q', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z', '!', '@', '#', '$', '%', '&', '*', '-', '+', '=', '|', '<', '>', '?', '.', '_', ' '];
 
     averageColor = function(imageBuffer) {
         var result,
-        count = 0,
-        red = 0,
-        green = 0,
-        blue = 0,
-        alpha = 0,
-        bufferLength = imageBuffer.length,
-        i = 0;
+            count = 0,
+            red = 0,
+            green = 0,
+            blue = 0,
+            alpha = 0,
+            bufferLength = imageBuffer.length,
+            i = 0;
 
         for (i; i < bufferLength; i += 4){
 
@@ -165,8 +165,8 @@ var ascii_apocalypse = (function(){
         },
         testDistance:function(){
             var char1,
-            char2,
-            result;
+                char2,
+                result;
 
             char1 = getCharacterData('a');
             char2 = getCharacterData('b');
@@ -201,7 +201,7 @@ var ascii_apocalypse = (function(){
         },
         swap:function(theImage, theCanvas, oldImage) {
             var newImage,
-            destination;
+                destination;
             if(! oldImage){
                 destination = theImage;
             }
@@ -220,14 +220,14 @@ var ascii_apocalypse = (function(){
                 imageList = document.getElementsByTagName('img');
             }
             var newImage,
-            destination,
-            arrayLength,
-            imageArray;
+                destination,
+                arrayLength,
+                imageArray;
             if(imageList instanceof NodeList) {
                 imageArray = Array.prototype.slice.call(imageList);
                 arrayLength = imageArray.length;
             } else {
-                alert('Multi swap requires a NodeList');
+                console.log('Multi swap requires a NodeList');
                 return;
             }
 
@@ -238,10 +238,10 @@ var ascii_apocalypse = (function(){
             this.multiswap();
         },
         init:function(theImage){
+            console.log('In Init');
             canvas = document.createElement('canvas');
             canvas.width = theImage.width;
             canvas.height = theImage.height;
-
 
             context = canvas.getContext('2d');
 
@@ -257,4 +257,16 @@ var ascii_apocalypse = (function(){
         }
     }; 
     return app;
+}());
+
+(function(){
+    var imgs = document.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        console.log(imgs[i]);
+
+        if(imgs[i].src.indexOf(target) !== -1) {
+            ascii_apocalypse.create([imgs[i]], 0);
+            break;
+        }
+    }
 }());

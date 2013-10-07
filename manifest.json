@@ -5,7 +5,9 @@
     "version": "0.1",
     "permissions":[
        "activeTab",
-       "contextMenus" 
+       "tabs",
+       "contextMenus",
+       "http://*/"
     ],
     "background": {
         "scripts": ["controller.js"]
